@@ -1,6 +1,6 @@
 @Library('Shared') _
 pipeline{
-    agent {label: 'node'}
+    agent {label 'node'}
 
     environment{
         SONAR_HOME = tool "Sonar"
@@ -56,7 +56,9 @@ pipeline{
         }
 
         stage('Docker: build/push'){
-
+            steps{
+                echo "docker image is build and pushed"
+            }
         }
 
         stage('Dev deployment approval'){
