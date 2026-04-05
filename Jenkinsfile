@@ -64,7 +64,7 @@ pipeline{
         stage('Dev deployment approval'){
             steps{
                 timeout(time: 15, unit: "MINUTES"){
-                    input 'Do you want to approve the deployment?',ok:'Proceed'
+                    input message:'Do you want to approve the deployment?',ok:'Proceed'
                 }
 
                 echo "Initiating deployment"
