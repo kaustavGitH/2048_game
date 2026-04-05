@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: game-2048
+  namespace: gameapps
   name: deployment-game-2048
   labels:
     app: eks-sample-linux-app
