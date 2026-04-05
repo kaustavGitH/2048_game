@@ -75,9 +75,9 @@ pipeline{
             steps{
                 withKubeConfig(caCertificate: '', clusterName: 'devops-cluster.us-east-1.eksctl.io', contextName: '', credentialsId: 'k8s-cred', namespace: 'gameapps', restrictKubeConfigAccess: false, serverUrl: 'https://6D6C515BA875CB036EAE07E744E23910.gr7.us-east-1.eks.amazonaws.com'){
                     sh """
-                        "kubectl apply -f deploy.yml"
-                        "kubectl apply -f service.yml"
-                        "kubectl apply -f ingress.yml"
+                        kubectl apply -f deploy.yml
+                        kubectl apply -f service.yml
+                        kubectl apply -f ingress.yml
                     """    
                 }
             }
@@ -87,7 +87,7 @@ pipeline{
             steps{
                 withKubeConfig(caCertificate: '', clusterName: 'devops-cluster.us-east-1.eksctl.io', contextName: '', credentialsId: 'k8s-cred', namespace: 'gameapps', restrictKubeConfigAccess: false, serverUrl: 'https://6D6C515BA875CB036EAE07E744E23910.gr7.us-east-1.eks.amazonaws.com'){
                     sh """
-                        "kubectl get all -n gameapps"
+                        kubectl get all -n gameapps
                     """
                 }
             }
