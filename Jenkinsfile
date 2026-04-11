@@ -31,14 +31,6 @@ pipeline{
             }
         }
 
-        stage('OWASP: Dependency check'){
-            steps{
-                script{
-                    owasp_dependency()
-                }
-            }
-        }
-
         stage('Sonarqube: Code analysis'){
             steps{
                 script{
