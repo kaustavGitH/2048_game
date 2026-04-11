@@ -65,7 +65,7 @@ pipeline{
 
         stage('Deploy on dev'){
             steps{
-                withKubeConfig(caCertificate: '', clusterName: 'devops-cluster.us-east-1.eksctl.io', contextName: '', credentialsId: 'k8s-cred', namespace: 'gameapps', restrictKubeConfigAccess: false, serverUrl: 'https://6D6C515BA875CB036EAE07E744E23910.gr7.us-east-1.eks.amazonaws.com'){
+                withKubeConfig(caCertificate: '', clusterName: 'game-cluster.us-east-1.eksctl.io', contextName: '', credentialsId: 'k8s-cred', namespace: 'gameapps', restrictKubeConfigAccess: false, serverUrl: 'https://20DBD31CBB0B0009176A9D1AC7376EE2.gr7.us-east-1.eks.amazonaws.com'){
                     sh """
                         kubectl apply -f deploy.yml
                         kubectl apply -f service.yml
@@ -77,7 +77,7 @@ pipeline{
 
         stage('Verify deployment'){
             steps{
-                withKubeConfig(caCertificate: '', clusterName: 'devops-cluster.us-east-1.eksctl.io', contextName: '', credentialsId: 'k8s-cred', namespace: 'gameapps', restrictKubeConfigAccess: false, serverUrl: 'https://6D6C515BA875CB036EAE07E744E23910.gr7.us-east-1.eks.amazonaws.com'){
+                withKubeConfig(caCertificate: '', clusterName: 'game-cluster.us-east-1.eksctl.io', contextName: '', credentialsId: 'k8s-cred', namespace: 'gameapps', restrictKubeConfigAccess: false, serverUrl: 'https://20DBD31CBB0B0009176A9D1AC7376EE2.gr7.us-east-1.eks.amazonaws.com'){
                     sh """
                         kubectl get all -n gameapps
                     """
